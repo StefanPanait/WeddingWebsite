@@ -1,42 +1,83 @@
-console.log("testing v2")
+//save save map HTML
+var HTMLMap = document.getElementsByClassName("confirmation-page-sidebar map-sidebar-box")
+if (HTMLMap.length > 0) HTMLMap = HTMLMap[0].outerHTML;
+function loadjscssfile(filename, filetype, callback) {
+    if (filetype == "js") { //if filename is a external JavaScript file
+        var fileref = document.createElement('script')
+        fileref.src = filename
+        fileref.async = false
+        if (callback) {
+            fileref.onload = function () {
+                callback();
+            }
+        }
+    } else if (filetype == "css") { //if filename is an external CSS file
+        var fileref = document.createElement("link")
+        fileref.setAttribute("rel", "stylesheet")
+        fileref.setAttribute("type", "text/css")
+        fileref.setAttribute("href", filename)
+    }
+    if (typeof fileref != "undefined")
+        document.head.appendChild(fileref);
+}
+// wait for injected body and jquery to be available
+var waitForDependencies = setInterval(function () {
+    // if jquery not available do not clear interval
+    if (typeof $ === 'undefined') return
+    // we should check for main element's existence here
+    clearInterval(waitForDependencies);
+    afterBodyLoaded()
+}, 10);
+function afterBodyLoaded() {
+    $('body').scrollspy({ target: ".navbar", offset: 50 });
 
+    // Add smooth scrolling on all links inside the navbar
+    $("#top-navbar a").on('click', function (event) {
+        // Make sure this.hash has a value before overriding default behavior
+        if (this.hash !== "") {
+            // Prevent default anchor click behavior
+            event.preventDefault();
+            // Store hash
+            var hash = this.hash;
+            // Using jQuery's animate() method to add smooth page scroll
+            // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+            $('html, body').animate({
+                scrollTop: $(hash).offset().top
+            }, 800, function () {
+                // Add hash (#) to URL when done scrolling (default click behavior)
+                window.location.hash = hash;
+            });
+        } // End if
 
+    });
+    $("#map").html(HTMLMap);
+}
+
+// remove existing HTML
 document.body.innerHTML = "";
-//document.body.style.backgroundImage = "url('https://i.ibb.co/cbZNZqV/weddingwebsitebackground.png')";
+// get and inject our HTML
+var xhttp = new XMLHttpRequest();
+var HTMLbody = "";
+xhttp.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+        HTMLbody = xhttp.responseText;
+        document.body.innerHTML = HTMLbody;
+    }
+};
 
+var HTMLBodyLocation = ""
+// production
+if (window.location.hostname === "wendrei2019.app.rsvpify.com") HTMLBodyLocation = "https://cdn.jsdelivr.net/gh/StefanPanait/WeddingWebsite@dev/body.html"
+// local
+if (window.location.hostname === "localhost") HTMLBodyLocation = "http://localhost:3000/body.html"
+
+xhttp.open("GET", HTMLBodyLocation, true);
+xhttp.send();
+
+//inject CCS
 loadjscssfile("https://mdbootstrap.com/previews/docs/latest/css/mdb.min.css", "css");
 loadjscssfile("https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css", "css")
-
-document.body.innerHTML = '\
-<main>\
-<div class="view jarallax" style="height: 100vh;">\
-  <img class="jarallax-img" src="https://i.ibb.co/cbZNZqV/weddingwebsitebackground.png" alt="">\
-  <div class="mask rgba-blue-slight">\
-    <div class="container flex-center text-center">\
-      <div class="row mt-5">\
-        <div class="col-md-12 col-xl-8 mx-auto wow fadeIn">\
-          <h1 class="display-3 font-weight-bold mb-2 wow fadeInDown" data-wow-delay="0.3s">Hi Cutie!</h1>\
-        </div>\
-      </div>\
-    </div>\
-  </div>\
-</div>\
-<div class="container">\
-  <!--Grid row-->\
-  <div class="row my-5 py-4">\
-    <!--Grid column-->\
-    <div class="col-md-12 text-center">\
-      <p align="justify">Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime.</p>\
-      <p class="mb-0" align="justify">Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime.</p>\
-    </div>\
-    <!--Grid column-->\
-  </div>\
-  <!--Grid row-->\
-</div>\
-</main>';
-
-
-
+// inject JS
 loadjscssfile("https://mdbootstrap.com/previews/docs/latest/js/jquery-3.3.1.min.js", "js");
 loadjscssfile("https://mdbootstrap.com/previews/docs/latest/js/popper.min.js", "js");
 loadjscssfile("https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js", "js");
@@ -48,23 +89,3 @@ loadjscssfile("https://mdbootstrap.com/previews/docs/latest/js/mdb.min.js", "js"
     });
 });
 
-function loadjscssfile(filename, filetype, callback) {
-    if (filetype == "js") { //if filename is a external JavaScript file
-      var fileref = document.createElement('script')
-      fileref.src = filename
-      fileref.async = false
-      if (callback) {
-        fileref.onload = function () {
-            callback();
-        }
-      } 
-    } else if (filetype == "css") { //if filename is an external CSS file
-      var fileref = document.createElement("link")
-      fileref.setAttribute("rel", "stylesheet")
-      fileref.setAttribute("type", "text/css")
-      fileref.setAttribute("href", filename)
-    }
-    if (typeof fileref != "undefined")
-      //document.body.appendChild(fileref);
-      document.head.appendChild(fileref);
-    }
