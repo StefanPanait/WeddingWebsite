@@ -67,7 +67,7 @@ xhttp.onreadystatechange = function () {
 
 var HTMLBodyLocation = ""
 // production
-if (window.location.hostname === "wendrei2019.app.rsvpify.com") HTMLBodyLocation = "https://cdn.jsdelivr.net/gh/StefanPanait/WeddingWebsite@dev/body.html"
+if (window.location.hostname === "wendrei2019.app.rsvpify.com") HTMLBodyLocation = "https://cdn.jsdelivr.net/gh/StefanPanait/WeddingWebsite@master/body.html"
 // local
 if (window.location.hostname === "localhost") HTMLBodyLocation = "http://localhost:3000/body.html"
 
