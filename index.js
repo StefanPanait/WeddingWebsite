@@ -1,4 +1,4 @@
-//save save map HTML test
+//save save map HTML
 var HTMLMap = document.getElementsByClassName("confirmation-page-sidebar map-sidebar-box")
 if (HTMLMap.length > 0) HTMLMap = HTMLMap[0].outerHTML;
 function loadjscssfile(filename, filetype, callback) {
