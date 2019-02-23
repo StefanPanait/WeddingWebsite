@@ -46,6 +46,15 @@ function main() {
     var guestElements = document.getElementsByClassName("confirmation-page-guest-name");
     console.log(guestElements.innerHTML);
     var guests = "";
+
+    // wait for injected body and jquery to be available
+    var waitForGuests = setInterval(function () {
+        // if jquery not available do not clear interval
+        if (typeof guestElements[i].nextElementSibling.firstChild.className === 'undefined') return
+        // we should check for main element's existence here
+        clearInterval(waitForGuests);
+    }, 10);
+
     for (i = 0; i < guestElements.length; i++) {
         if (!guestElements[i].nextElementSibling.firstChild.className.includes("declined")) guests = guests + (guestElements[i].title)
     }
@@ -61,7 +70,7 @@ function main() {
         if (this.readyState == 4 && this.status == 200) {
             HTMLbody = xhttp.responseText;
             document.body.innerHTML = HTMLbody;
-            document.getElementById("guests").innerText=guests
+            document.getElementById("guests").innerText = guests
         }
     };
 
