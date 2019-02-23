@@ -88,6 +88,7 @@ var waitForMap = setInterval(function () {
     if (HTMLMap.length == 0) return
     HTMLMap = HTMLMap[0].outerHTML;
     clearInterval(waitForMap);
+    main()
 }, 10);
 
 //inject CCS
