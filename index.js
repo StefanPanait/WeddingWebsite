@@ -112,7 +112,6 @@ document.write('<style class="hideStuff" ' +
 // wait for guests to load
 var waitForGuests = setInterval(function () {
     if (typeof guestElements[i].nextElementSibling.firstChild.className === 'undefined') return
-    // we should check for main element's existence here
     clearInterval(waitForGuests);
     main();
 }, 10);
