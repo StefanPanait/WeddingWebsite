@@ -18,7 +18,7 @@ function loadjscssfile(filename, filetype, callback) {
     if (typeof fileref != "undefined")
         document.head.appendChild(fileref);
 }
-function afterBodyLoaded() {
+function afterJQueryLoaded() {
     $('body').scrollspy({ target: ".navbar", offset: 50 });
 
     // Add smooth scrolling on all links inside the navbar
@@ -88,7 +88,7 @@ function main() {
         if (typeof $ === 'undefined') return
         // we should check for main element's existence here
         clearInterval(waitForJQuery);
-        afterBodyLoaded()
+        afterJQueryLoaded()
     }, 10);
 }
 
