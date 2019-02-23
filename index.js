@@ -19,7 +19,7 @@ function loadjscssfile(filename, filetype, callback) {
         document.head.appendChild(fileref);
 }
 function afterJQueryLoaded() {
-    $('body').scrollspy({ target: ".navbar", offset: 300 });
+    $('body').scrollspy({ target: ".navbar", offset: 500 });
 
     // Add smooth scrolling on all links inside the navbar
     $("#top-navbar a").on('click', function (event) {
