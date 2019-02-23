@@ -42,7 +42,9 @@ function afterBodyLoaded() {
     });
     $("#map").html(HTMLMap);
 }
+function main() {
 
+}
 
 // main
 document.write('<style class="hideStuff" ' +
@@ -56,38 +58,6 @@ var waitForMap = setInterval(function () {
     if (HTMLMap.length == 0) return
     HTMLMap = HTMLMap[0].outerHTML;
     clearInterval(waitForMap);
-
-    // remove existing HTML
-    document.head.innerHTML = "";
-    document.body.innerHTML = "";
-    // get and inject our HTML
-    var xhttp = new XMLHttpRequest();
-    var HTMLbody = "";
-    xhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            HTMLbody = xhttp.responseText;
-            document.body.innerHTML = HTMLbody;
-        }
-    };
-
-    var HTMLBodyLocation = ""
-    // production
-    if (window.location.hostname === "wendrei2019.app.rsvpify.com") HTMLBodyLocation = "https://jackgaino.com/sp/WeddingWebsite/body.html"
-    // local
-    if (window.location.hostname === "localhost") HTMLBodyLocation = "http://localhost:3000/body.html"
-
-    xhttp.open("GET", HTMLBodyLocation, true);
-    xhttp.send();
-
-
-    // wait for injected body and jquery to be available
-    var waitForJQuery = setInterval(function () {
-        // if jquery not available do not clear interval
-        if (typeof $ === 'undefined') return
-        // we should check for main element's existence here
-        clearInterval(waitForJQuery);
-        afterBodyLoaded()
-    }, 10);
 }, 10);
 
 //inject CCS
