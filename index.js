@@ -90,19 +90,3 @@ var waitForMap = setInterval(function () {
     clearInterval(waitForMap);
     main()
 }, 10);
-
-//inject CCS
-loadjscssfile("https://mdbootstrap.com/previews/docs/latest/css/mdb.min.css", "css");
-loadjscssfile("https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css", "css")
-// inject JS
-loadjscssfile("https://mdbootstrap.com/previews/docs/latest/js/jquery-3.3.1.min.js", "js");
-loadjscssfile("https://mdbootstrap.com/previews/docs/latest/js/popper.min.js", "js");
-loadjscssfile("https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js", "js");
-loadjscssfile("https://mdbootstrap.com/previews/docs/latest/js/mdb.min.js", "js", function () {
-    objectFitImages();
-    jarallax(document.querySelectorAll('.jarallax'));
-    jarallax(document.querySelectorAll('.jarallax-keep-img'), {
-        keepImg: true,
-    });
-});
-
