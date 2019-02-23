@@ -102,6 +102,7 @@ var waitForMap = setInterval(function () {
     HTMLMap = document.getElementsByClassName("confirmation-page-sidebar map-sidebar-box")
     console.log("tesint for map:", HTMLMap);
     if (HTMLMap.length == 0) return
+    console.log("map not 0 map:", HTMLMap);
     HTMLMap = HTMLMap[0].outerHTML;
     clearInterval(waitForMap);
     main()
