@@ -40,7 +40,7 @@ function afterJQueryLoaded() {
         } // End if
 
     });
-    $("#map").html(HTMLMap);
+    $("#map").html('<iframe frameborder="0" src="//www.google.com/maps/embed/v1/place?key=AIzaSyB0SA0ZCScmAQWS8Ros-LdZzR9blFjaAN8&amp;q=place_id:ChIJXf3oXkTQKogRhb3cn8eqomA" width="100%"></iframe>');
 }
 function main() {
     // remove existing HTML
