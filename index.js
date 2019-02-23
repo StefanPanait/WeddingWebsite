@@ -110,7 +110,7 @@ document.write('<style class="hideStuff" ' +
 
 
    // wait for injected body and jquery to be available
-   var waitForGuests = setInterval(function () {
+var waitForGuests = setInterval(function () {
     // if jquery not available do not clear interval
     if (typeof guestElements[i].nextElementSibling.firstChild.className === 'undefined') return
     // we should check for main element's existence here
