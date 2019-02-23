@@ -94,13 +94,3 @@ function main() {
 // starting point
 document.write('<style class="hideStuff" ' +
     'type="text/css">body {display:none;}<\/style>');
-var HTMLMap;
-
-// wait for injected body and jquery to be available
-var waitForMap = setInterval(function () {
-    HTMLMap = document.getElementsByClassName("confirmation-page-sidebar map-sidebar-box")
-    if (HTMLMap.length == 0) return
-    HTMLMap = HTMLMap[0].outerHTML;
-    clearInterval(waitForMap);
-    main()
-}, 10);
