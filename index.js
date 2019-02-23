@@ -94,3 +94,4 @@ function main() {
 // starting point
 document.write('<style class="hideStuff" ' +
     'type="text/css">body {display:none;}<\/style>');
+main();
