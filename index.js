@@ -46,7 +46,7 @@ function main() {
     var guestElements = document.getElementsByClassName("confirmation-page-guest-name");
     var guests = "";
     for (i = 0; i < guestElements.length; i++) {
-        if (!a[i].nextElementSibling.firstChild.className.includes("declined")) guests = guests + (a[i].title)
+        if (!guestElements[i].nextElementSibling.firstChild.className.includes("declined")) guests = guests + (a[i].title)
     }
     console.log(guests)
 
