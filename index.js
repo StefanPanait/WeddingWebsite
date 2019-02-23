@@ -43,6 +43,8 @@ function afterBodyLoaded() {
     $("#map").html(HTMLMap);
 }
 
+
+// main
 document.write('<style class="hideStuff" ' +
     'type="text/css">body {display:none;}<\/style>');
 var HTMLMap;
@@ -50,7 +52,7 @@ var HTMLMap;
 // wait for injected body and jquery to be available
 var waitForMap = setInterval(function () {
     HTMLMap = document.getElementsByClassName("confirmation-page-sidebar map-sidebar-box")
-    console.log(HTMLMap);
+    console.log("tesint for map:", HTMLMap);
     if (HTMLMap.length == 0) return
     HTMLMap = HTMLMap[0].outerHTML;
     clearInterval(waitForMap);
