@@ -51,8 +51,8 @@ function afterBodyLoaded() {
     $("#map").html(HTMLMap);
 }
 
-document.write( '<style class="hideStuff" ' +
-                'type="text/css">body {display:none;}<\/style>');
+document.write('<style class="hideStuff" ' +
+    'type="text/css">body {display:none;}<\/style>');
 
 // wait for injected body and jquery to be available
 var waitForDependencies = setInterval(function () {
@@ -61,30 +61,30 @@ var waitForDependencies = setInterval(function () {
     if (HTMLMap.length == 0) return
     HTMLMap = HTMLMap[0].outerHTML;
     clearInterval(waitForDependencies);
-    afterBodyLoaded()
+
+    // remove existing HTML
+    document.head.innerHTML = "";
+    document.body.innerHTML = "";
+    // get and inject our HTML
+    var xhttp = new XMLHttpRequest();
+    var HTMLbody = "";
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            HTMLbody = xhttp.responseText;
+            document.body.innerHTML = HTMLbody;
+        }
+    };
+
+    var HTMLBodyLocation = ""
+    // production
+    if (window.location.hostname === "wendrei2019.app.rsvpify.com") HTMLBodyLocation = "https://jackgaino.com/sp/WeddingWebsite/body.html"
+    // local
+    if (window.location.hostname === "localhost") HTMLBodyLocation = "http://localhost:3000/body.html"
+
+    xhttp.open("GET", HTMLBodyLocation, true);
+    xhttp.send();
+
 }, 10);
-
-// remove existing HTML
-document.head.innerHTML = "";
-document.body.innerHTML = "";
-// get and inject our HTML
-var xhttp = new XMLHttpRequest();
-var HTMLbody = "";
-xhttp.onreadystatechange = function () {
-    if (this.readyState == 4 && this.status == 200) {
-        HTMLbody = xhttp.responseText;
-        document.body.innerHTML = HTMLbody;
-    }
-};
-
-var HTMLBodyLocation = ""
-// production
-if (window.location.hostname === "wendrei2019.app.rsvpify.com") HTMLBodyLocation = "https://jackgaino.com/sp/WeddingWebsite/body.html"
-// local
-if (window.location.hostname === "localhost") HTMLBodyLocation = "http://localhost:3000/body.html"
-
-xhttp.open("GET", HTMLBodyLocation, true);
-xhttp.send();
 
 //inject CCS
 loadjscssfile("https://mdbootstrap.com/previews/docs/latest/css/mdb.min.css", "css");
