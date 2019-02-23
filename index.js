@@ -95,3 +95,10 @@ function main() {
 document.write('<style class="hideStuff" ' +
     'type="text/css">body {display:none;}<\/style>');
 main();
+
+
+
+document.getElementsByClassName("confirmation-page-guest-name").forEach(function () {
+    
+})
+document.getElementsByClassName("confirmation-page-guest-name")[0].nextElementSibling.firstChild.className
