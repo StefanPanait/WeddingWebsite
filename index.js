@@ -47,13 +47,7 @@ function main() {
     console.log(guestElements.innerHTML);
     var guests = "";
 
-    // wait for injected body and jquery to be available
-    var waitForGuests = setInterval(function () {
-        // if jquery not available do not clear interval
-        if (typeof guestElements[i].nextElementSibling.firstChild.className === 'undefined') return
-        // we should check for main element's existence here
-        clearInterval(waitForGuests);
-    }, 10);
+ 
 
     for (i = 0; i < guestElements.length; i++) {
         if (!guestElements[i].nextElementSibling.firstChild.className.includes("declined")) guests = guests + (guestElements[i].title)
@@ -113,4 +107,13 @@ function main() {
 // starting point
 document.write('<style class="hideStuff" ' +
     'type="text/css">body {display:none;}<\/style>');
-main();
+
+
+   // wait for injected body and jquery to be available
+   var waitForGuests = setInterval(function () {
+    // if jquery not available do not clear interval
+    if (typeof guestElements[i].nextElementSibling.firstChild.className === 'undefined') return
+    // we should check for main element's existence here
+    clearInterval(waitForGuests);
+    main();
+}, 10);
