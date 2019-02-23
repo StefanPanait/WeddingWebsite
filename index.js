@@ -18,14 +18,6 @@ function loadjscssfile(filename, filetype, callback) {
     if (typeof fileref != "undefined")
         document.head.appendChild(fileref);
 }
-// wait for injected body and jquery to be available
-var waitForDependencies = setInterval(function () {
-    // if jquery not available do not clear interval
-    if (typeof $ === 'undefined') return
-    // we should check for main element's existence here
-    clearInterval(waitForDependencies);
-    afterBodyLoaded()
-}, 10);
 function afterBodyLoaded() {
     $('body').scrollspy({ target: ".navbar", offset: 50 });
 
@@ -85,6 +77,15 @@ var waitForDependencies = setInterval(function () {
     xhttp.open("GET", HTMLBodyLocation, true);
     xhttp.send();
 
+
+    // wait for injected body and jquery to be available
+    var waitForJQuery = setInterval(function () {
+        // if jquery not available do not clear interval
+        if (typeof $ === 'undefined') return
+        // we should check for main element's existence here
+        clearInterval(waitForJQuery);
+        afterBodyLoaded()
+    }, 10);
 }, 10);
 
 //inject CCS
