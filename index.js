@@ -44,6 +44,7 @@ function afterJQueryLoaded() {
 function main() {
     //store list of attending guests
     var guestElements = document.getElementsByClassName("confirmation-page-guest-name");
+    console.log(guestElements)l
     var guests = "";
     for (i = 0; i < guestElements.length; i++) {
         if (!guestElements[i].nextElementSibling.firstChild.className.includes("declined")) guests = guests + (a[i].title)
