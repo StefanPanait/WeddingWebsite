@@ -51,16 +51,15 @@ function afterBodyLoaded() {
     $("#map").html(HTMLMap);
 }
 
-
-
-document.head.innerHTML = "";
-
+document.write( '<style class="hideStuff" ' +
+                'type="text/css">body {display:none;}<\/style>');
 //save save map HTML 
 var HTMLMap = document.getElementsByClassName("confirmation-page-sidebar map-sidebar-box")
 console.log(HTMLMap);
 if (HTMLMap.length > 0) HTMLMap = HTMLMap[0].outerHTML;
 console.log(HTMLMap);
 // remove existing HTML
+document.head.innerHTML = "";
 document.body.innerHTML = "";
 // get and inject our HTML
 var xhttp = new XMLHttpRequest();
