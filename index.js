@@ -1,8 +1,4 @@
-document.head.innerHTML = "";
-
-//save save map HTML 
-var HTMLMap = document.getElementsByClassName("confirmation-page-sidebar map-sidebar-box")
-if (HTMLMap.length > 0) HTMLMap = HTMLMap[0].outerHTML;
+// methods at top to make it easier to test by copy pasting
 function loadjscssfile(filename, filetype, callback) {
     if (filetype == "js") { //if filename is a external JavaScript file
         var fileref = document.createElement('script')
@@ -55,6 +51,15 @@ function afterBodyLoaded() {
     $("#map").html(HTMLMap);
 }
 
+
+
+document.head.innerHTML = "";
+
+//save save map HTML 
+var HTMLMap = document.getElementsByClassName("confirmation-page-sidebar map-sidebar-box")
+console.log(HTMLMap);
+if (HTMLMap.length > 0) HTMLMap = HTMLMap[0].outerHTML;
+console.log(HTMLMap);
 // remove existing HTML
 document.body.innerHTML = "";
 // get and inject our HTML
