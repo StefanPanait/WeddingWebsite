@@ -48,12 +48,12 @@ document.write('<style class="hideStuff" ' +
 var HTMLMap;
 
 // wait for injected body and jquery to be available
-var waitForDependencies = setInterval(function () {
+var waitForMap = setInterval(function () {
     HTMLMap = document.getElementsByClassName("confirmation-page-sidebar map-sidebar-box")
     console.log(HTMLMap);
     if (HTMLMap.length == 0) return
     HTMLMap = HTMLMap[0].outerHTML;
-    clearInterval(waitForDependencies);
+    clearInterval(waitForMap);
 
     // remove existing HTML
     document.head.innerHTML = "";
