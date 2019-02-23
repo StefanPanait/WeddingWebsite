@@ -53,11 +53,11 @@ function afterBodyLoaded() {
 
 document.write('<style class="hideStuff" ' +
     'type="text/css">body {display:none;}<\/style>');
-var HTMLMap
+var HTMLMap;
 
 // wait for injected body and jquery to be available
 var waitForDependencies = setInterval(function () {
-     = document.getElementsByClassName("confirmation-page-sidebar map-sidebar-box")
+    HTMLMap = document.getElementsByClassName("confirmation-page-sidebar map-sidebar-box")
     console.log(HTMLMap);
     if (HTMLMap.length == 0) return
     HTMLMap = HTMLMap[0].outerHTML;
