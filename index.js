@@ -43,7 +43,6 @@ function afterJQueryLoaded() {
 }
 function main() {
     //store list of attending guests
-    var guestElements = document.getElementsByClassName("confirmation-page-guest-name");
     console.log(guestElements.innerHTML);
     var guests = "";
 
