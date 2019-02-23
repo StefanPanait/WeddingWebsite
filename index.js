@@ -44,7 +44,7 @@ function afterJQueryLoaded() {
 function main() {
     //store list of attending guests
     var guestElements = document.getElementsByClassName("confirmation-page-guest-name");
-    var guests = []
+    var guests = "";
     for (i = 0; i < guestElements.length; i++) {
         if (!a[i].nextElementSibling.firstChild.className.includes("declined")) guests.push(a[i].title)
     }
@@ -61,6 +61,7 @@ function main() {
             HTMLbody = xhttp.responseText;
             document.body.innerHTML = HTMLbody;
             for (i = 0; i < guests.length; i++) {
+                
                 if (!a[i].nextElementSibling.firstChild.className.includes("declined")) guests.push(a[i].title)
             }
         }
