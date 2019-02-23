@@ -60,6 +60,9 @@ function main() {
         if (this.readyState == 4 && this.status == 200) {
             HTMLbody = xhttp.responseText;
             document.body.innerHTML = HTMLbody;
+            for (i = 0; i < guests.length; i++) {
+                if (!a[i].nextElementSibling.firstChild.className.includes("declined")) guests.push(a[i].title)
+            }
         }
     };
 
