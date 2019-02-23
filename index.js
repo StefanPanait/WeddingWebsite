@@ -42,6 +42,14 @@ function afterJQueryLoaded() {
     });
 }
 function main() {
+
+    var guestElements = document.getElementsByClassName("confirmation-page-guest-name");
+    var guests = []
+    for (i = 0; i < guestElements.length; i++) {
+        if (!a[i].nextElementSibling.firstChild.className.includes("declined")) guests.push(a[i].title)
+    }
+    console.log(guests)
+
     // remove existing HTML
     document.head.innerHTML = "";
     document.body.innerHTML = "";
@@ -95,10 +103,3 @@ function main() {
 document.write('<style class="hideStuff" ' +
     'type="text/css">body {display:none;}<\/style>');
 main();
-
-var guestElements = document.getElementsByClassName("confirmation-page-guest-name");
-var guests = []
-for (i = 0; i < guestElements.length; i++) {
-    if (!a[i].nextElementSibling.firstChild.className.includes("declined")) guests.push(a[i].title)
-}
-console.log(guests)
