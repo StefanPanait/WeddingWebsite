@@ -48,7 +48,7 @@ function main() {
     for (i = 0; i < guestElements.length; i++) {
         if (!guestElements[i].nextElementSibling.firstChild.className.includes("declined")) guests = guests + (guestElements[i].title) + ", "
     }
-    guests = guests.substr(0,-2)
+   // guests = guests.substr(0,-2)
     console.log(guests)
 
     // remove existing HTML
