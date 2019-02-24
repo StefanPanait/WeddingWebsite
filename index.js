@@ -89,7 +89,6 @@ function main() {
         });
     });
 
-
     // wait for injected body and jquery to be available
     var waitForJQuery = setInterval(function () {
         // if jquery not available do not clear interval
