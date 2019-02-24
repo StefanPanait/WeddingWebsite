@@ -61,7 +61,11 @@ function main() {
         if (this.readyState == 4 && this.status == 200) {
             HTMLbody = xhttp.responseText;
             document.body.innerHTML = HTMLbody;
-            document.getElementById("guests").innerText = guests
+            if (window.location.hostname === "wendrei2019.app.rsvpify.com") {
+                document.getElementById("guests").innerText = guests
+            } else {
+                document.getElementById("guests").innerText = "Stefan Panait, Wendy Li, The Sheep"
+            }
         }
     };
 
@@ -106,7 +110,9 @@ document.write('<style class="hideStuff" ' +
 var guestElements = document.getElementsByClassName("confirmation-page-guest-name");
 // wait for guests to load
 var waitForGuests = setInterval(function () {
-    if (typeof guestElements[0] === 'undefined' || typeof guestElements[0].nextElementSibling.firstChild.className === 'undefined') return
+    if (window.location.hostname === "wendrei2019.app.rsvpify.com") {
+        if (typeof guestElements[0] === 'undefined' || typeof guestElements[0].nextElementSibling.firstChild.className === 'undefined') return
+    }
     clearInterval(waitForGuests);
     main();
 }, 10);
