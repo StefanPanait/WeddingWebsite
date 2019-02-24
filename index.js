@@ -73,7 +73,6 @@ function main() {
     xhttp.open("GET", HTMLBodyLocation, true);
     xhttp.send();
 
-
     //inject CCS
     loadjscssfile("https://mdbootstrap.com/previews/docs/latest/css/mdb.min.css", "css");
     loadjscssfile("https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css", "css")
