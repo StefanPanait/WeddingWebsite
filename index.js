@@ -45,9 +45,6 @@ function main() {
     //store list of attending guests
     console.log(guestElements.innerHTML);
     var guests = "";
-
- 
-
     for (i = 0; i < guestElements.length; i++) {
         if (!guestElements[i].nextElementSibling.firstChild.className.includes("declined")) guests = guests + (guestElements[i].title)
     }
