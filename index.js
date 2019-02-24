@@ -106,7 +106,7 @@ document.write('<style class="hideStuff" ' +
 var guestElements = document.getElementsByClassName("confirmation-page-guest-name");
 // wait for guests to load
 var waitForGuests = setInterval(function () {
-    if (typeof guestElements[0].nextElementSibling.firstChild.className === 'undefined') return
+    if (typeof guestElements[0] === 'undefined' || typeof guestElements[0].nextElementSibling.firstChild.className === 'undefined') return
     clearInterval(waitForGuests);
     main();
 }, 10);
