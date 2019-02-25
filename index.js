@@ -63,6 +63,7 @@ function main() {
             document.body.innerHTML = HTMLbody;
             if (window.location.hostname === "wendrei2019.app.rsvpify.com") {
                 document.getElementById("guests").innerText = guests
+                document.getElementById("btnChangeRSVP").href = RSVPLink
             } else {
                 document.getElementById("guests").innerText = "Stefan Panait, Wendy Li, The Sheep"
             }
@@ -111,7 +112,7 @@ document.write('<style class="hideStuff" ' +
     'type="text/css">body {display:none;}<\/style>');
 
 var guestElements = document.getElementsByClassName("confirmation-page-guest-name");
-var RSVPLink = "https://wendrei2019.app.rsvpify.com/?s=2&p_id=oDyYz"; // default
+var RSVPLink;
 // wait for guests to load
 var waitForGuests = setInterval(function () {
     console.log("this shouldn't spam")
