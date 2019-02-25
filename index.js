@@ -66,6 +66,7 @@ function afterOriginalElements() {
     loadjscssfile("https://mdbootstrap.com/previews/docs/latest/css/mdb.min.css", "css");
     loadjscssfile("https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css", "css")
     loadjscssfile("https://fonts.googleapis.com/css?family=Indie+Flower", "css")
+    loadjscssfile("https://use.fontawesome.com/releases/v5.7.2/css/all.css", "css")
 
     loadjscssfile("https://fonts.googleapis.com/css?family=Dancing+Script", "css")
     // inject JS
