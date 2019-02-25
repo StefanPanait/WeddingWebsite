@@ -91,6 +91,14 @@ function afterOriginalElements() {
 }
 function afterCustomDependencies() {
     console.log("running afterCustomDependencies");
+
+    objectFitImages();
+        jarallax(document.querySelectorAll('.jarallax'));
+        jarallax(document.querySelectorAll('.jarallax-keep-img'), {
+            keepImg: true,
+        });
+
+
     if (window.location.hostname === "wendrei2019.app.rsvpify.com") {
         console.log(guests);
         document.getElementById("guests").innerText = guests
