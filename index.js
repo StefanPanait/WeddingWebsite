@@ -55,7 +55,7 @@ function afterCustomDependencies() {
     });
 }
 function afterOriginalElements() {
-    var guests;
+    var guests = "";
     // scrape data
 
     //scrape guests
