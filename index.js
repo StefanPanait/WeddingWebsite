@@ -18,7 +18,20 @@ function loadjscssfile(filename, filetype, callback) {
     if (typeof fileref != "undefined")
         document.head.appendChild(fileref);
 }
-function afterJQueryLoaded() {
+function afterCustomDependencies() {
+    if (window.location.hostname === "wendrei2019.app.rsvpify.com") {
+        document.getElementById("guests").innerText = guests
+        document.getElementById("btnChangeRSVP").href = RSVPLink + "#custom"
+    } else {
+        document.getElementById("guests").innerText = "Stefan Panait, Wendy Li, The Sheep"
+    }
+
+    // enable popovers
+    $(function () {
+        $('[data-toggle="popover"]').popover()
+    })
+
+    //enable scrollpy
     $('body').scrollspy({ target: ".navbar", offset: 100 });
 
     // Add smooth scrolling on all links inside the navbar
@@ -41,32 +54,38 @@ function afterJQueryLoaded() {
 
     });
 }
-function main() {
-    //store list of attending guests
-    console.log(guestElements.innerHTML);
-    var guests = "";
-    for (i = 0; i < guestElements.length; i++) {
-        if (!guestElements[i].nextElementSibling.firstChild.className.includes("declined")) guests = guests + (guestElements[i].title) + ", "
-    }
-    guests = guests.slice(0,-2)
-    console.log(guests)
+function afterOriginalElements() {
+    var guests;
+    // scrape data
 
+    //scrape guests
+    if (window.location.hostname === "wendrei2019.app.rsvpify.com") {
+        for (i = 0; i < guestElements.length; i++) {
+            if (!guestElements[i].nextElementSibling.firstChild.className.includes("declined")) guests = guests + (guestElements[i].title) + ", "
+        }
+        guests = guests.slice(0, -2)
+        console.log(guests)
+        // scrape change rsvp link
+        RSVPLink = document.querySelector(".confirmation-page-sidebar-wrapper > .btn").href;
+        console.log(RSVPLink)
+    }
+ 
     // remove existing HTML
     document.head.innerHTML = "";
     document.body.innerHTML = "";
+
     // get and inject our HTML
     var xhttp = new XMLHttpRequest();
-    var HTMLbody = "";
-    xhttp.onreadystatechange = function () {
+    xhttp.onreadystatechange = function () { //after my html is injected
         if (this.readyState == 4 && this.status == 200) {
             HTMLbody = xhttp.responseText;
+            // inject custom HTML and custom data that was scraped
             document.body.innerHTML = HTMLbody;
-            if (window.location.hostname === "wendrei2019.app.rsvpify.com") {
-                document.getElementById("guests").innerText = guests
-                document.getElementById("btnChangeRSVP").href = RSVPLink + "#custom"
-            } else {
-                document.getElementById("guests").innerText = "Stefan Panait, Wendy Li, The Sheep"
-            }
+            var waitForCustomHTML = setInterval(function () {
+                if (document.getElementById("btnChangeRSVP") === null) return
+                clearInterval(waitForCustomHTML);
+                customHTMLLoaded = true;
+            }, 10);
         }
     };
 
@@ -95,32 +114,33 @@ function main() {
             keepImg: true,
         });
     });
-
     // wait for injected body and jquery to be available
-    var waitForJQuery = setInterval(function () {
+    var waitForCustomDependencies = setInterval(function () {
         console.log("this shouldn't spam")
         // if jquery not available do not clear interval
         if (typeof $ === 'undefined') return
-        // we should check for main element's existence here
-        clearInterval(waitForJQuery);
-        afterJQueryLoaded()
+        // if custom html not ready yet do not clear interval
+        if (!customHTMLLoaded) return
+        clearInterval(waitForCustomDependencies);
+        afterCustomDependencies()
     }, 10);
 }
 
-// starting point
+// starting point - hide everything
 document.write('<style class="hideStuff" ' +
     'type="text/css">body {display:none;}<\/style>');
 
 var guestElements = document.getElementsByClassName("confirmation-page-guest-name");
 var RSVPLink;
-// wait for guests to load
-var waitForGuests = setInterval(function () {
+var customHTMLLoaded = false;
+var HTMLbody;
+
+// wait RSVPify data to load so i can scrape some of it
+var waitForOriginalElements = setInterval(function () {
     console.log("this shouldn't spam")
     if (window.location.hostname === "wendrei2019.app.rsvpify.com") {
         if (typeof guestElements[0] === 'undefined' || typeof guestElements[0].nextElementSibling.firstChild.className === 'undefined') return
-        RSVPLink = document.querySelector(".confirmation-page-sidebar-wrapper > .btn").href;
-        console.log(RSVPLink)
     }
-    clearInterval(waitForGuests);
-    main();
+    clearInterval(waitForOriginalElements);
+    afterOriginalElements();
 }, 10);
