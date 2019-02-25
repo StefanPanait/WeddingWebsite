@@ -18,6 +18,7 @@ function loadjscssfile(filename, filetype, callback) {
     if (typeof fileref != "undefined")
         document.head.appendChild(fileref);
 }
+var HTMLBodyLocation = ""
 function afterOriginalElements() {
     console.log("running afterOriginalElements");
     // scrape data
@@ -52,7 +53,7 @@ function afterOriginalElements() {
         }
     };
 
-    var HTMLBodyLocation = ""
+
     // production
     if (window.location.hostname === "wendrei2019.app.rsvpify.com") HTMLBodyLocation = "https://jackgaino.com/sp/WeddingWebsite/body.html"
     // local
