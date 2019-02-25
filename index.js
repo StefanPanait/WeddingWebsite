@@ -44,7 +44,6 @@ function afterOriginalElements() {
         if (this.readyState == 4 && this.status == 200) {
             HTMLbody = xhttp.responseText;
             // inject custom HTML and custom data that was scraped
-            document.body.innerHTML = HTMLbody;
             var waitForCustomHTML = setInterval(function () {
                 if (document.getElementById("btnChangeRSVP") === null) return
                 clearInterval(waitForCustomHTML);
@@ -78,6 +77,8 @@ function afterOriginalElements() {
         jarallax(document.querySelectorAll('.jarallax-keep-img'), {
             keepImg: true,
         });
+        document.body.innerHTML = HTMLbody;
+
     });
     // wait for injected body and jquery to be available
     var waitForCustomDependencies = setInterval(function () {
