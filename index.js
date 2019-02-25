@@ -33,7 +33,7 @@ function afterOriginalElements() {
         RSVPLink = document.querySelector(".confirmation-page-sidebar-wrapper > .btn").href;
         console.log(RSVPLink)
     }
- 
+
     // remove existing HTML
     document.head.innerHTML = "";
     document.body.innerHTML = "";
@@ -88,10 +88,10 @@ function afterCustomDependencies() {
     console.log("running afterCustomDependencies");
 
     objectFitImages();
-        jarallax(document.querySelectorAll('.jarallax'));
-        jarallax(document.querySelectorAll('.jarallax-keep-img'), {
-            keepImg: true,
-        });
+    jarallax(document.querySelectorAll('.jarallax'));
+    jarallax(document.querySelectorAll('.jarallax-keep-img'), {
+        keepImg: true,
+    });
 
 
     if (window.location.hostname === "wendrei2019.app.rsvpify.com") {
