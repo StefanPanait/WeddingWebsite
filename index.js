@@ -33,7 +33,7 @@ function afterOriginalElements() {
         RSVPLink = document.querySelector(".confirmation-page-sidebar-wrapper > .btn").href;
         console.log(RSVPLink)
     }
- 
+
     // remove existing HTML
     document.head.innerHTML = "";
     document.body.innerHTML = "";
@@ -49,6 +49,11 @@ function afterOriginalElements() {
                 if (document.getElementById("btnChangeRSVP") === null) return
                 clearInterval(waitForCustomHTML);
                 customHTMLLoaded = true;
+                objectFitImages();
+                jarallax(document.querySelectorAll('.jarallax'));
+                jarallax(document.querySelectorAll('.jarallax-keep-img'), {
+                    keepImg: true,
+                });
             }, 10);
         }
     };
