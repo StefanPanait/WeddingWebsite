@@ -21,6 +21,7 @@ function loadjscssfile(filename, filetype, callback) {
 function afterCustomDependencies() {
     console.log("running afterCustomDependencies");
     if (window.location.hostname === "wendrei2019.app.rsvpify.com") {
+        console.log(guests);
         document.getElementById("guests").innerText = guests
         document.getElementById("btnChangeRSVP").href = RSVPLink + "#custom"
     } else {
