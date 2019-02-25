@@ -80,14 +80,13 @@ function afterOriginalElements() {
     });
     // wait for injected body and jquery to be available
     var waitForCustomDependencies = setInterval(function () {
-        console.log("this shouldn't spam")
         // if jquery not available do not clear interval
         if (typeof $ === 'undefined') return
         // if custom html not ready yet do not clear interval
         if (!customHTMLLoaded) return
         clearInterval(waitForCustomDependencies);
         afterCustomDependencies()
-    }, 10);
+    }, 1);
 }
 function afterCustomDependencies() {
     console.log("running afterCustomDependencies");
@@ -140,10 +139,9 @@ var guests = "";
 
 // wait RSVPify data to load so i can scrape some of it
 var waitForOriginalElements = setInterval(function () {
-    console.log("this shouldn't spam")
     if (window.location.hostname === "wendrei2019.app.rsvpify.com") {
         if (typeof guestElements[0] === 'undefined' || typeof guestElements[0].nextElementSibling.firstChild.className === 'undefined') return
     }
     clearInterval(waitForOriginalElements);
     afterOriginalElements();
-}, 10);
+}, 1);
