@@ -73,11 +73,6 @@ function afterOriginalElements() {
     loadjscssfile("https://mdbootstrap.com/previews/docs/latest/js/popper.min.js", "js");
     loadjscssfile("https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js", "js");
     loadjscssfile("https://mdbootstrap.com/previews/docs/latest/js/mdb.min.js", "js", function () {
-        objectFitImages();
-        jarallax(document.querySelectorAll('.jarallax'));
-        jarallax(document.querySelectorAll('.jarallax-keep-img'), {
-            keepImg: true,
-        });
     });
     // wait for injected body and jquery to be available
     var waitForCustomDependencies = setInterval(function () {
