@@ -111,8 +111,7 @@ document.write('<style class="hideStuff" ' +
     'type="text/css">body {display:none;}<\/style>');
 
 var guestElements = document.getElementsByClassName("confirmation-page-guest-name");
-var RSVPLink;
-console.log(RSVPElement)
+var RSVPLink = "https://wendrei2019.app.rsvpify.com/?s=2&p_id=oDyYz"; // default
 // wait for guests to load
 var waitForGuests = setInterval(function () {
     console.log("this shouldn't spam")
