@@ -111,13 +111,15 @@ document.write('<style class="hideStuff" ' +
     'type="text/css">body {display:none;}<\/style>');
 
 var guestElements = document.getElementsByClassName("confirmation-page-guest-name");
-var RSVPElement = document.querySelector(".confirmation-page-sidebar-wrapper > .btn").href;
+var RSVPLink;
 console.log(RSVPElement)
 // wait for guests to load
 var waitForGuests = setInterval(function () {
     console.log("this shouldn't spam")
     if (window.location.hostname === "wendrei2019.app.rsvpify.com") {
         if (typeof guestElements[0] === 'undefined' || typeof guestElements[0].nextElementSibling.firstChild.className === 'undefined') return
+        RSVPLink = document.querySelector(".confirmation-page-sidebar-wrapper > .btn").href;
+        console.log(RSVPLink)
     }
     clearInterval(waitForGuests);
     main();
