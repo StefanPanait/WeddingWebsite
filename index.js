@@ -43,6 +43,15 @@ function afterOriginalElements() {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () { //after my html is injected
         if (this.readyState == 4 && this.status == 200) {
+            loadjscssfile("https://mdbootstrap.com/previews/docs/latest/js/mdb.min.js", "js", function () {
+                objectFitImages();
+                jarallax(document.querySelectorAll('.jarallax'));
+                jarallax(document.querySelectorAll('.jarallax-keep-img'), {
+                    keepImg: true,
+                });
+                document.body.innerHTML = HTMLbody;
+        
+            });
             HTMLbody = xhttp.responseText;
             // inject custom HTML and custom data that was scraped
             var waitForCustomHTML = setInterval(function () {
@@ -72,15 +81,7 @@ function afterOriginalElements() {
     loadjscssfile("https://mdbootstrap.com/previews/docs/latest/js/jquery-3.3.1.min.js", "js");
     loadjscssfile("https://mdbootstrap.com/previews/docs/latest/js/popper.min.js", "js");
     loadjscssfile("https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js", "js");
-    loadjscssfile("https://mdbootstrap.com/previews/docs/latest/js/mdb.min.js", "js", function () {
-        objectFitImages();
-        jarallax(document.querySelectorAll('.jarallax'));
-        jarallax(document.querySelectorAll('.jarallax-keep-img'), {
-            keepImg: true,
-        });
-        document.body.innerHTML = HTMLbody;
 
-    });
     // wait for injected body and jquery to be available
     var waitForCustomDependencies = setInterval(function () {
         // if jquery not available do not clear interval
