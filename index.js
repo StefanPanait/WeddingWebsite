@@ -63,7 +63,7 @@ function main() {
             document.body.innerHTML = HTMLbody;
             if (window.location.hostname === "wendrei2019.app.rsvpify.com") {
                 document.getElementById("guests").innerText = guests
-                document.getElementById("btnChangeRSVP").href = RSVPLink
+                document.getElementById("btnChangeRSVP").href = RSVPLink + "#custom"
             } else {
                 document.getElementById("guests").innerText = "Stefan Panait, Wendy Li, The Sheep"
             }
