@@ -78,6 +78,7 @@ function afterOriginalElements() {
     var waitForCustomDependencies = setInterval(function () {
         // if jquery not available do not clear interval
         if (typeof $ === 'undefined') return
+        // wait for jaralalx
         if (typeof objectFitImages === 'undefined') return
         // if custom html not ready yet do not clear interval
         if (!customHTMLLoaded) return
