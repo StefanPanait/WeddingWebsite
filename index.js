@@ -136,6 +136,7 @@ var guestElements = document.getElementsByClassName("confirmation-page-guest-nam
 var RSVPLink;
 var customHTMLLoaded = false;
 var HTMLbody;
+var guests;
 
 // wait RSVPify data to load so i can scrape some of it
 var waitForOriginalElements = setInterval(function () {
