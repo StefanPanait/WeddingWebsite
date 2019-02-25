@@ -18,44 +18,6 @@ function loadjscssfile(filename, filetype, callback) {
     if (typeof fileref != "undefined")
         document.head.appendChild(fileref);
 }
-function afterCustomDependencies() {
-    console.log("running afterCustomDependencies");
-    if (window.location.hostname === "wendrei2019.app.rsvpify.com") {
-        console.log(guests);
-        document.getElementById("guests").innerText = guests
-        document.getElementById("btnChangeRSVP").href = RSVPLink + "#custom"
-    } else {
-        document.getElementById("guests").innerText = "Stefan Panait, Wendy Li, The Sheep"
-    }
-
-    // enable popovers
-    $(function () {
-        $('[data-toggle="popover"]').popover()
-    })
-
-    //enable scrollpy
-    $('body').scrollspy({ target: ".navbar", offset: 100 });
-
-    // Add smooth scrolling on all links inside the navbar
-    $("#top-navbar a").on('click', function (event) {
-        // Make sure this.hash has a value before overriding default behavior
-        if (this.hash !== "") {
-            // Prevent default anchor click behavior
-            event.preventDefault();
-            // Store hash
-            var hash = this.hash;
-            // Using jQuery's animate() method to add smooth page scroll
-            // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
-            $('html, body').animate({
-                scrollTop: $(hash).offset().top - 100
-            }, 800, function () {
-                // Add hash (#) to URL when done scrolling (default click behavior)
-                //window.location.hash = hash;
-            });
-        } // End if
-
-    });
-}
 function afterOriginalElements() {
     console.log("running afterOriginalElements");
     // scrape data
@@ -126,6 +88,44 @@ function afterOriginalElements() {
         clearInterval(waitForCustomDependencies);
         afterCustomDependencies()
     }, 10);
+}
+function afterCustomDependencies() {
+    console.log("running afterCustomDependencies");
+    if (window.location.hostname === "wendrei2019.app.rsvpify.com") {
+        console.log(guests);
+        document.getElementById("guests").innerText = guests
+        document.getElementById("btnChangeRSVP").href = RSVPLink + "#custom"
+    } else {
+        document.getElementById("guests").innerText = "Stefan Panait, Wendy Li, The Sheep"
+    }
+
+    // enable popovers
+    $(function () {
+        $('[data-toggle="popover"]').popover()
+    })
+
+    //enable scrollpy
+    $('body').scrollspy({ target: ".navbar", offset: 100 });
+
+    // Add smooth scrolling on all links inside the navbar
+    $("#top-navbar a").on('click', function (event) {
+        // Make sure this.hash has a value before overriding default behavior
+        if (this.hash !== "") {
+            // Prevent default anchor click behavior
+            event.preventDefault();
+            // Store hash
+            var hash = this.hash;
+            // Using jQuery's animate() method to add smooth page scroll
+            // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+            $('html, body').animate({
+                scrollTop: $(hash).offset().top - 100
+            }, 800, function () {
+                // Add hash (#) to URL when done scrolling (default click behavior)
+                //window.location.hash = hash;
+            });
+        } // End if
+
+    });
 }
 
 // starting point - hide everything
