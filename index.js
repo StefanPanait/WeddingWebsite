@@ -72,8 +72,7 @@ function afterOriginalElements() {
     loadjscssfile("https://mdbootstrap.com/previews/docs/latest/js/jquery-3.3.1.min.js", "js");
     loadjscssfile("https://mdbootstrap.com/previews/docs/latest/js/popper.min.js", "js");
     loadjscssfile("https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js", "js");
-    loadjscssfile("https://mdbootstrap.com/previews/docs/latest/js/mdb.min.js", "js", function () {
-    });
+    loadjscssfile("https://mdbootstrap.com/previews/docs/latest/js/mdb.min.js", "js");
     // wait for injected body and jquery to be available
     var waitForCustomDependencies = setInterval(function () {
         // if jquery not available do not clear interval
