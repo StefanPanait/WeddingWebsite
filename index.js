@@ -58,8 +58,6 @@ function afterCustomDependencies() {
 }
 function afterOriginalElements() {
     console.log("running afterOriginalElements");
-
-    var guests = "";
     // scrape data
 
     //scrape guests
