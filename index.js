@@ -81,6 +81,8 @@ function main() {
     //inject CCS
     loadjscssfile("https://mdbootstrap.com/previews/docs/latest/css/mdb.min.css", "css");
     loadjscssfile("https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css", "css")
+
+    loadjscssfile("https://fonts.googleapis.com/css?family=Dancing+Script", "css")
     // inject JS
     loadjscssfile("https://mdbootstrap.com/previews/docs/latest/js/jquery-3.3.1.min.js", "js");
     loadjscssfile("https://mdbootstrap.com/previews/docs/latest/js/popper.min.js", "js");
@@ -95,6 +97,7 @@ function main() {
 
     // wait for injected body and jquery to be available
     var waitForJQuery = setInterval(function () {
+        console.log("this shouldn't spam")
         // if jquery not available do not clear interval
         if (typeof $ === 'undefined') return
         // we should check for main element's existence here
@@ -108,8 +111,11 @@ document.write('<style class="hideStuff" ' +
     'type="text/css">body {display:none;}<\/style>');
 
 var guestElements = document.getElementsByClassName("confirmation-page-guest-name");
+var RSVPElement = document.querySelector(".confirmation-page-sidebar-wrapper > .btn").href;
+console.log(RSVPElement)
 // wait for guests to load
 var waitForGuests = setInterval(function () {
+    console.log("this shouldn't spam")
     if (window.location.hostname === "wendrei2019.app.rsvpify.com") {
         if (typeof guestElements[0] === 'undefined' || typeof guestElements[0].nextElementSibling.firstChild.className === 'undefined') return
     }
