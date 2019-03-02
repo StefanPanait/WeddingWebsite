@@ -67,7 +67,7 @@ function afterOriginalElements() {
     loadjscssfile("https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css", "css")
     loadjscssfile("https://fonts.googleapis.com/css?family=Indie+Flower", "css")
     loadjscssfile("https://use.fontawesome.com/releases/v5.7.2/css/all.css", "css")
-
+    loadjscssfile("https://fonts.googleapis.com/css?family=ZCOOL+QingKe+HuangYou", "css");
     loadjscssfile("https://fonts.googleapis.com/css?family=Dancing+Script", "css")
     // inject JS
     loadjscssfile("https://mdbootstrap.com/previews/docs/latest/js/jquery-3.3.1.min.js", "js");
@@ -123,7 +123,7 @@ function afterCustomDependencies() {
             // Using jQuery's animate() method to add smooth page scroll
             // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
             $('html, body').animate({
-                scrollTop: $(hash).offset().top - 100
+                scrollTop: $(hash).offset().top - 75
             }, 800, function () {
                 // Add hash (#) to URL when done scrolling (default click behavior)
                 //window.location.hash = hash;
