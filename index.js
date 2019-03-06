@@ -62,18 +62,18 @@ function afterOriginalElements() {
     xhttp.open("GET", HTMLBodyLocation, true);
     xhttp.send();
 
-    //inject CCS
-    loadjscssfile("https://mdbootstrap.com/previews/docs/latest/css/mdb.min.css", "css");
-    loadjscssfile("https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css", "css")
+    //inject CCS    
+    loadjscssfile("https://jackgaino.com/sp/WeddingWebsite/resources/css/mdb.min.css", "css");
+    loadjscssfile("https://jackgaino.com/sp/WeddingWebsite/resources/css/bootstrap.min.css", "css")
     loadjscssfile("https://fonts.googleapis.com/css?family=Indie+Flower", "css")
     loadjscssfile("https://use.fontawesome.com/releases/v5.7.2/css/all.css", "css")
     loadjscssfile("https://fonts.googleapis.com/css?family=ZCOOL+QingKe+HuangYou", "css");
     loadjscssfile("https://fonts.googleapis.com/css?family=Dancing+Script", "css")
     // inject JS
-    loadjscssfile("https://mdbootstrap.com/previews/docs/latest/js/jquery-3.3.1.min.js", "js");
-    loadjscssfile("https://mdbootstrap.com/previews/docs/latest/js/popper.min.js", "js");
-    loadjscssfile("https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js", "js");
-    loadjscssfile("https://mdbootstrap.com/previews/docs/latest/js/mdb.min.js", "js");
+    loadjscssfile("https://jackgaino.com/sp/WeddingWebsite/resources/js/jquery-3.3.1.min.js", "js");
+    loadjscssfile("https://jackgaino.com/sp/WeddingWebsite/resources/js/popper.min.js", "js");
+    loadjscssfile("https://jackgaino.com/sp/WeddingWebsite/resources/js/bootstrap.min.js", "js");
+    loadjscssfile("https://jackgaino.com/sp/WeddingWebsite/resources/js/mdb.min.js", "js");
     // wait for injected body and jquery to be available
     var waitForCustomDependencies = setInterval(function () {
         // if jquery not available do not clear interval
